@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-05-20T00:00:00+00:00",
+  "azure": {
+    "serviceName": "Azure",
+    "mtdTotal": 0,
+    "lastMonth": 0,
+    "dailyAvg": 0,
+    "eomForecast": 0,
+    "resources": [],
+    "spikeDetected": false,
+    "spikePct": 0,
+    "analysis": "Loading..."
+  },
+  "elevenlabs": {
+    "planName": "Loading...",
+    "status": "Unknown",
+    "percentUsed": 0,
+    "charsUsed": 0,
+    "charLimit": 0,
+    "charsRemaining": 0,
+    "burnRatePerDay": 0,
+    "projectedEOM": 0,
+    "willExceed": false,
+    "daysToReset": 0,
+    "daysToExhaustion": null,
+    "voiceSlots": {
+      "standard": { "used": 0, "limit": 0 },
+      "professional": { "used": 0, "limit": 0 }
+    },
+    "analysis": "Loading..."
+  }
+}

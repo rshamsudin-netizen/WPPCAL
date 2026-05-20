@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "collect-costs": "python scripts/collect-costs.py",
+    "collect-costs:watch": "watch 'npm run collect-costs' scripts/collect-costs.py"
   },
   "dependencies": {
     "next": "^15.1.0",
