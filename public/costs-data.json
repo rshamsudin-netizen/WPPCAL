@@ -1,32 +1,38 @@
 {
-  "timestamp": "2025-05-20T00:00:00+00:00",
+  "timestamp": "2026-05-20T18:13:04.664418+00:00",
   "azure": {
     "serviceName": "Azure",
     "mtdTotal": 0,
     "lastMonth": 0,
-    "dailyAvg": 0,
-    "eomForecast": 0,
+    "dailyAvg": 0.0,
+    "eomForecast": 0.0,
     "resources": [],
     "spikeDetected": false,
     "spikePct": 0,
-    "analysis": "Loading..."
+    "analysis": "Spending is $0 MTD, trending to $0 by month-end."
   },
   "elevenlabs": {
-    "planName": "Loading...",
-    "status": "Unknown",
-    "percentUsed": 0,
-    "charsUsed": 0,
-    "charLimit": 0,
-    "charsRemaining": 0,
-    "burnRatePerDay": 0,
-    "projectedEOM": 0,
-    "willExceed": false,
-    "daysToReset": 0,
-    "daysToExhaustion": null,
+    "planName": "Enterprise",
+    "status": "Active",
+    "percentUsed": 81.3,
+    "charsUsed": 243753875,
+    "charLimit": 300000000,
+    "charsRemaining": 56246125,
+    "burnRatePerDay": 10597995.0,
+    "projectedEOM": 74185962.0,
+    "willExceed": true,
+    "daysToReset": 7,
+    "daysToExhaustion": 5,
     "voiceSlots": {
-      "standard": { "used": 0, "limit": 0 },
-      "professional": { "used": 0, "limit": 0 }
+      "standard": {
+        "used": 0,
+        "limit": 20000
+      },
+      "professional": {
+        "used": 0,
+        "limit": 10
+      }
     },
-    "analysis": "Loading..."
+    "analysis": "\u26a0\ufe0f Will exceed limit in ~5 days"
   }
 }
