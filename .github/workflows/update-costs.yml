@@ -28,11 +28,21 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Collect cost data
         env:
           XI_API_KEY: ${{ secrets.XI_API_KEY }}
         run: |
           python scripts/collect-costs.py
+
+      - name: Build dashboard
+        run: |
+          npm install
+          npm run build
 
       - name: Commit and push changes
         run: |
@@ -52,8 +62,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          cname: costs.swordhealth.dev  # Change to your domain or remove for default
+          publish_dir: ./out
 
   notify-slack:
     needs: collect-costs
