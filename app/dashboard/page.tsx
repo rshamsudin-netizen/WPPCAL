@@ -43,7 +43,8 @@ export default function CostsDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/costs-data.json');
+        const base = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+        const res = await fetch(`${base}/costs-data.json`);
         const json = await res.json();
         setData(json);
         setLastUpdated(new Date(json.timestamp).toLocaleString());

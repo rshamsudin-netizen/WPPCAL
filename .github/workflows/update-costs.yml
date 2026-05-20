@@ -40,6 +40,8 @@ jobs:
           python scripts/collect-costs.py
 
       - name: Build dashboard
+        env:
+          NEXT_PUBLIC_BASE_PATH: /WPPCAL
         run: |
           npm install
           npm run build
