@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-31T20:04:21.890367+00:00",
+  "timestamp": "2026-05-31T21:45:07.250600+00:00",
   "azure": {
     "serviceName": "Azure",
     "mtdTotal": 0,
@@ -14,15 +14,15 @@
   "elevenlabs": {
     "planName": "Enterprise",
     "status": "Active",
-    "percentUsed": 10.3,
-    "charsUsed": 30780428,
+    "percentUsed": 10.5,
+    "charsUsed": 31517301,
     "charLimit": 300000000,
-    "charsRemaining": 269219572,
-    "burnRatePerDay": 10260143.0,
-    "projectedEOM": 277023852.0,
+    "charsRemaining": 268482699,
+    "burnRatePerDay": 10505767.0,
+    "projectedEOM": 283655709.0,
     "willExceed": true,
     "daysToReset": 27,
-    "daysToExhaustion": 26,
+    "daysToExhaustion": 25,
     "voiceSlots": {
       "standard": {
         "used": 0,
@@ -33,6 +33,6 @@
         "limit": 10
       }
     },
-    "analysis": "\u26a0\ufe0f Will exceed limit in ~26 days"
+    "analysis": "\u26a0\ufe0f Will exceed limit in ~25 days"
   }
 }
