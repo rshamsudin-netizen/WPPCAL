@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-23T06:36:39.764947+00:00",
+  "timestamp": "2026-06-23T10:25:16.934563+00:00",
   "azure": {
     "serviceName": "Azure",
     "mtdTotal": 0,
@@ -14,12 +14,12 @@
   "elevenlabs": {
     "planName": "Enterprise",
     "status": "Active",
-    "percentUsed": 123.3,
-    "charsUsed": 369826416,
+    "percentUsed": 123.4,
+    "charsUsed": 370194638,
     "charLimit": 300000000,
-    "charsRemaining": -69826416,
-    "burnRatePerDay": 14793057.0,
-    "projectedEOM": 73965283.0,
+    "charsRemaining": -70194638,
+    "burnRatePerDay": 14807786.0,
+    "projectedEOM": 74038928.0,
     "willExceed": true,
     "daysToReset": 5,
     "daysToExhaustion": -4,
