@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-23T05:00:11.958084+00:00",
+  "timestamp": "2026-07-23T07:32:31.128260+00:00",
   "azure": {
     "serviceName": "Azure",
     "mtdTotal": 0,
@@ -15,11 +15,11 @@
     "planName": "Enterprise",
     "status": "Active",
     "percentUsed": 96.3,
-    "charsUsed": 288821498,
+    "charsUsed": 289010647,
     "charLimit": 300000000,
-    "charsRemaining": 11178502,
-    "burnRatePerDay": 11552860.0,
-    "projectedEOM": 57764300.0,
+    "charsRemaining": 10989353,
+    "burnRatePerDay": 11560426.0,
+    "projectedEOM": 57802129.0,
     "willExceed": true,
     "daysToReset": 5,
     "daysToExhaustion": 0,
