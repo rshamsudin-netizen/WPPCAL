@@ -1,0 +1,281 @@
+<title>The Estimator Gap List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F4F5; --surface:#FFFFFF; --surface-2:#E9EDEF; --line:#CBD4D8;
+  --ink:#141E24; --ink-2:#41535C; --ink-3:#6B7E88;
+  --accent:#A8532A; --accent-soft:#F0E0D6;
+  --ok:#2C6349; --ok-soft:#DCEBE3;
+  --warn:#8A6212; --warn-soft:#F3E7CD;
+  --none:#5B6B74; --none-soft:#DDE3E6;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --display:"Chivo","IBM Plex Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1518; --surface:#151E22; --surface-2:#1C272C; --line:#2C3A41;
+    --ink:#E6ECEE; --ink-2:#AEBDC4; --ink-3:#7E9099;
+    --accent:#D9834F; --accent-soft:#33211A;
+    --ok:#7BC3A0; --ok-soft:#17281F;
+    --warn:#D7AC5A; --warn-soft:#2A2213;
+    --none:#93A4AC; --none-soft:#1F2A2F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1518; --surface:#151E22; --surface-2:#1C272C; --line:#2C3A41;
+  --ink:#E6ECEE; --ink-2:#AEBDC4; --ink-3:#7E9099;
+  --accent:#D9834F; --accent-soft:#33211A;
+  --ok:#7BC3A0; --ok-soft:#17281F;
+  --warn:#D7AC5A; --warn-soft:#2A2213;
+  --none:#93A4AC; --none-soft:#1F2A2F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:48px 24px 96px;display:flex;flex-direction:column;gap:44px}
+header.masthead{display:flex;flex-direction:column;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:24px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.02em}
+.standfirst{font-size:1.05rem;color:var(--ink-2);max-width:66ch;margin:0}
+.metastrip{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+h2{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.01em;margin:0 0 4px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:1.08rem;margin:0 0 2px}
+section{display:flex;flex-direction:column;gap:16px}
+p{margin:0;max-width:74ch}
+.callout{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.callout h3{color:var(--accent)}
+.scroller{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:13.5px}
+caption{text-align:left;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:12px 14px;border-bottom:1px solid var(--line)}
+th,td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--line)}
+thead th{background:var(--surface-2);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:500;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+td.rank{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);width:38px}
+td.firm{font-weight:600;min-width:170px}
+td.firm a{display:block;font-weight:400;font-size:12px;font-family:var(--mono);color:var(--ink-3);word-break:break-all}
+td.num{font-variant-numeric:tabular-nums;min-width:150px}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.t-ok{background:var(--ok-soft);color:var(--ok)}
+.t-warn{background:var(--warn-soft);color:var(--warn)}
+.t-none{background:var(--none-soft);color:var(--none)}
+.t-acc{background:var(--accent-soft);color:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--ink-2)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:8px}
+.card .why{font-size:14px;color:var(--ink-2)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:74ch}
+li{padding-left:2px}
+.mono{font-family:var(--mono)}
+footer{border-top:1px solid var(--line);padding-top:20px;font-size:13px;color:var(--ink-3);max-width:74ch}
+@media (max-width:640px){.wrap{padding:32px 14px 64px;gap:34px}}
+</style>
+
+<div class="wrap">
+<header class="masthead">
+  <div class="eyebrow">Prospect research · MEP &amp; fire protection · NW Europe</div>
+  <h1>The Estimator Gap List</h1>
+  <p class="standfirst">Twenty-five specialty trade subcontractors ranked on one thesis: they are winning more invitations to tender than their estimating desk can price. UK first, then Ireland, the Netherlands and Denmark.</p>
+  <div class="metastrip">
+    <span>Compiled 20 Aug 2026</span>
+    <span>Method: public web search only</span>
+    <span>Every claim carries its source</span>
+    <span>Gaps are flagged, not filled</span>
+  </div>
+</header>
+
+<section>
+  <div class="callout">
+    <h3>Read this before you use the list</h3>
+    <p>This research ran in a sandbox where <strong>direct page fetching was blocked by network policy</strong> — I could query a search index but could not open company websites, Companies House filings, LinkedIn, or job boards. Every fact below comes from a search-engine result or its snippet summary of the page named in the source column. Practical consequences:</p>
+    <ul>
+      <li><strong>Job-posting dates are mostly unverified.</strong> I can show that a vacancy exists or existed on a named page; I could not read most posting dates, so "last 6 months" is unconfirmed except where stated.</li>
+      <li><strong>LinkedIn URLs appear only where a search result surfaced one.</strong> I have not invented profile URLs, and most rows say so.</li>
+      <li><strong>Revenue and headcount are labelled by source quality.</strong> Trade-press figures drawn from filed accounts are marked verified; data-broker figures (RocketReach, ZoomInfo, Pomanda) are marked as broker claims and should be re-checked at Companies House / CVR / KVK before you spend money on them.</li>
+      <li><strong>Denmark and Sweden are thin.</strong> I could not verify a single in-band Danish or Swedish independent to this standard. Rather than pad the list with plausible names, I have given you the exact portals and search strings to work those two markets yourself.</li>
+    </ul>
+  </div>
+  <div class="legend">
+    <span><span class="tag t-ok">Verified</span> named press/company source states the fact</span>
+    <span><span class="tag t-warn">Broker claim</span> aggregator figure, re-check</span>
+    <span><span class="tag t-none">Not verified</span> could not establish</span>
+  </div>
+</section>
+
+<section>
+  <h2>Ranked shortlist</h2>
+  <p>Ranked by fit to your offer: size band, independence, and above all evidence of demand outrunning estimating capacity. Rows 1–8 are the ones I would work first; 19–25 are included with explicit caveats about size or missing evidence.</p>
+  <div class="scroller">
+  <table>
+    <caption>Table 1 — 25 MEP and fire protection subcontractors, ranked by fit</caption>
+    <thead><tr>
+      <th>#</th><th>Firm / site</th><th>City, country</th><th>Trades &amp; sectors</th><th>Revenue · headcount (source)</th><th>Fit verdict</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="rank">1</td><td class="firm">Kimpton<a href="https://www.kimpton.co.uk/">kimpton.co.uk</a></td><td>Liverpool, UK</td><td>Mechanical + electrical building services, HVAC, PPM/FM. Commercial, fit-out, healthcare, education.</td><td class="num">£25m · 55 staff <span class="tag t-ok">Verified</span><br><span class="mono">Construction Enquirer, Nov 2024</span></td><td>Dead centre of the band, independent after a 2024 MBO, and it has been buying estimating capacity in the market — the clearest demand-surplus signal on this list.</td></tr>
+
+      <tr><td class="rank">2</td><td class="firm">Arc-Tech (Scotland)<a href="https://www.arctechscotland.co.uk/">arctechscotland.co.uk</a></td><td>Glasgow, UK</td><td>Mechanical, electrical, renewables. Public sector and private commercial.</td><td class="num">£35m, exceeding £40m in FY26 · 120 staff <span class="tag t-ok">Verified</span><br><span class="mono">Project Scotland, Aug 2026</span></td><td>Founded 2016 and compounding fast; a firm scaling this quickly outruns its pre-construction team before it outruns its site teams.</td></tr>
+
+      <tr><td class="rank">3</td><td class="firm">Evans Group (Evans Electrical Ltd)<span class="tag t-none">site not verified</span></td><td>South Wales / South West, UK <span class="tag t-none">city</span></td><td>Electrical + mechanical, fire &amp; security, data/comms, energy, FM. Education, commercial, public sector.</td><td class="num">£21.6m FY to 31 Oct 2025, up from £10.4m · 120 staff <span class="tag t-ok">Verified</span><br><span class="mono">Insider Media, South West</span></td><td>Turnover doubled in one year and the order book runs into 2027 — textbook capacity crunch, and family-run so the decision is one conversation.</td></tr>
+
+      <tr><td class="rank">4</td><td class="firm">Rockwell Engineering<a href="https://www.rockwell.ie/">rockwell.ie</a></td><td>Co. Cork, Ireland</td><td>Mechanical, HVAC, engineering contracting. Industrial, pharma, commercial.</td><td class="num">€40m · 200 staff <span class="tag t-ok">Verified</span><br><span class="mono">Irish Construction News / rockwell.ie</span></td><td>In band, independent since 1981, publicly targeting €100m by 2030 with a new MD — growth targets of that shape are bid-volume problems first.</td></tr>
+
+      <tr><td class="rank">5</td><td class="firm">BSN Group<a href="https://bsn-group.co.uk/">bsn-group.co.uk</a></td><td>Brierley Hill, West Midlands, UK</td><td>M&amp;E roots, now five companies incl. in-house electrical/MEP. Healthcare (NHS), heritage, public sector. Projects £100k–£5m.</td><td class="num">£45m in 2025, up from £25m · 80+ staff <span class="tag t-ok">Verified</span><br><span class="mono">Express &amp; Star / Place Midlands</span></td><td>Revenue nearly doubled on an 80-person base — the arithmetic says the bid desk is the bottleneck. Caveat: now a construction group, not a pure subcontractor.</td></tr>
+
+      <tr><td class="rank">6</td><td class="firm">Armstrong Priestley<a href="https://armstrongpriestley.co.uk/">armstrongpriestley.co.uk</a></td><td>Leeds, UK</td><td>Fire sprinklers / automatic suppression. Industrial, commercial, residential.</td><td class="num">£12m · 70 direct staff <span class="tag t-ok">Verified</span><br><span class="mono">armstrongpriestley.co.uk; broker figure differs</span></td><td>Independent fire specialist mid-succession (founder retiring, two joint MDs stepping up) with live vacancies — succession years are when firms buy capability rather than headcount.</td></tr>
+
+      <tr><td class="rank">7</td><td class="firm">Triangle Fire Systems<a href="https://www.trianglefiregroup.co.uk/">trianglefiregroup.co.uk</a></td><td>Kent, UK</td><td>Residential, commercial and retrofit sprinklers, dry/wet risers. Residential blocks, retail, commercial.</td><td class="num">&gt;£24m (2021) · ~100 staff <span class="tag t-ok">Verified</span><br><span class="mono">Clearwater CF transaction note</span></td><td>Family-founded, growth-funded, and sitting in the one trade where Building Safety Act demand is structurally ahead of supply. Note the minority BGF stake.</td></tr>
+
+      <tr><td class="rank">8</td><td class="firm">A. de Jong Groep<a href="https://dejong.nl/">dejong.nl</a></td><td>Schiedam, Netherlands</td><td>Installatietechniek: mechanical + electrical. Offices, hospitals, schools, hotels.</td><td class="num">~200 staff <span class="tag t-ok">Verified</span> · revenue <span class="tag t-none">not verified</span><br><span class="mono">dejong.nl / YER search brief</span></td><td>Two calculator vacancies open at once (W and E) plus a general-director search citing growth already in the business — the single most explicit estimating-capacity signal in the Dutch set.</td></tr>
+
+      <tr><td class="rank">9</td><td class="firm">Woodward Group<a href="https://www.woodwardgroup.net/">woodwardgroup.net</a></td><td>Burton upon Trent, UK</td><td>Electrical, mechanical, fire &amp; security, compliance. Commercial and industrial.</td><td class="num">Revenue <span class="tag t-none">not verified</span> · headcount <span class="tag t-none">not verified</span> (broker lists 24 for one entity)<br><span class="mono">Insider Media / East Midlands Business Link</span></td><td>Second-generation family firm that moved HQ in 2026 and hired ten people in spring — expansion posture, but you must size it at Companies House before calling.</td></tr>
+
+      <tr><td class="rank">10</td><td class="firm">ISTL Engineering<a href="https://www.istlengineering.co.uk/">istlengineering.co.uk</a></td><td>Cardiff, UK</td><td>Mechanical + electrical. Residential at scale (7,000+ apartments), mixed-use.</td><td class="num">40 direct staff, 100+ subcontractors <span class="tag t-ok">Verified</span> · revenue <span class="tag t-none">not verified</span><br><span class="mono">Development Bank of Wales / FW Capital, Feb 2026</span></td><td>Took six-figure debt in Feb 2026 specifically to service new Cardiff Bay contracts and create ten jobs — a firm funding its way through more work than it can currently carry.</td></tr>
+
+      <tr><td class="rank">11</td><td class="firm">Klomp B.V.<a href="https://klompbv.nl/">klompbv.nl</a></td><td>Amsterdam Noord, Netherlands</td><td>Installatie-, elektro-, klimaat-, dak- and beveiligingstechniek. Utility, housing stock, management &amp; maintenance.</td><td class="num">100+ specialists <span class="tag t-ok">Verified</span> · revenue <span class="tag t-none">not verified</span><br><span class="mono">klompbv.nl</span></td><td>Family-owned since 1961 with a live "ervaren calculator installatietechniek" vacancy on its own careers site — exactly the role your product substitutes for.</td></tr>
+
+      <tr><td class="rank">12</td><td class="firm">Van den Buijs Installaties<a href="https://vandenbuijs.nl/">vandenbuijs.nl</a></td><td>Breda, Netherlands</td><td>Mechanical, sanitary, heating, cooling, ventilation. Utility and residential construction.</td><td class="num">"almost 100" colleagues <span class="tag t-ok">Verified</span> · revenue <span class="tag t-none">not verified</span><br><span class="mono">vandenbuijs.nl</span></td><td>Founder-led, grew from one employee to ~100, and advertises calculator roles directly — small enough that the owner answers, big enough to have real tender volume.</td></tr>
+
+      <tr><td class="rank">13</td><td class="firm">Elm Building Services<a href="https://elmbuildingservices.co.uk/">elmbuildingservices.co.uk</a></td><td>Morley, Leeds, UK</td><td>M&amp;E, solar/low-carbon. Industrial, commercial, retail, leisure (David Lloyd, Whitbread).</td><td class="num">£8–10m expected · 23 staff, targeting £15–17m <span class="tag t-ok">Verified</span><br><span class="mono">Finance Yorkshire / Insider Media</span></td><td>New MBO owners with an explicit plan to roughly double revenue off 23 people. They cannot hire their way there; below your headcount floor today.</td></tr>
+
+      <tr><td class="rank">14</td><td class="firm">Linthorst Techniek<span class="tag t-none">site not verified</span></td><td>Wenum Wiesel / Apeldoorn, Netherlands</td><td>Installatietechniek with a sustainability focus. Utility.</td><td class="num">~€50m · ~350 staff <span class="tag t-warn">Broker claim</span><br><span class="mono">madeinapeldoorn.com profile</span></td><td>Family business claiming 15–20% annual growth — right revenue band, but headcount is above your ceiling and the figures need KVK confirmation.</td></tr>
+
+      <tr><td class="rank">15</td><td class="firm">Compco Fire Systems<a href="https://www.compcofire.co.uk/">compcofire.co.uk</a></td><td>Worcester (+6 offices), UK</td><td>Sprinklers, gas suppression, hydrants, service &amp; maintenance. Industrial, commercial, public.</td><td class="num">Revenue <span class="tag t-none">not verified</span> · headcount <span class="tag t-none">not verified</span><br><span class="mono">compcofire.co.uk</span></td><td>Seven offices and a standing "we recruit all year round" position implies chronic capacity shortfall; size unconfirmed, so qualify before investing time.</td></tr>
+
+      <tr><td class="rank">16</td><td class="firm">Davies Building Engineering Services<a href="https://daviesltd.co.uk/">daviesltd.co.uk</a></td><td>York / Leeds, UK</td><td>Design, install, commission MEP. Commercial, industrial, retail, education.</td><td class="num">Revenue <span class="tag t-none">not verified</span> · headcount <span class="tag t-none">not verified</span><br><span class="mono">Companies House record, inc. 2017</span></td><td>Owner-managed and young enough to still be building process — likely under your revenue floor, so treat as a qualify-first name.</td></tr>
+
+      <tr><td class="rank">17</td><td class="firm">DL M&amp;E Building Services<a href="https://www.dl-bsl.co.uk/">dl-bsl.co.uk</a></td><td>Westhoughton, Bolton, UK</td><td>Mechanical + electrical design and install. Commercial, retail fit-out.</td><td class="num">Revenue <span class="tag t-none">not verified</span> · headcount <span class="tag t-none">not verified</span></td><td>Surfaced through an electrical estimator advert for its Bolton office — the vacancy is the reason it is here; everything else needs checking.</td></tr>
+
+      <tr><td class="rank">18</td><td class="firm">Meel Group<a href="https://meelgroup.co.uk/">meelgroup.co.uk</a></td><td>Macclesfield, Cheshire, UK</td><td>M&amp;E, plumbing, heating, maintenance, sustainability. NHS healthcare, commercial.</td><td class="num">11–50 staff <span class="tag t-warn">Broker claim</span> · revenue <span class="tag t-none">not verified</span><br><span class="mono">LinkedIn company page band</span></td><td>Named NHS SBS framework supplier, which is your framework-win signal — but probably below the size band, so a low-effort test rather than a priority.</td></tr>
+
+      <tr><td class="rank">19</td><td class="firm">Irwin M&amp;E<span class="tag t-none">site not verified</span></td><td>Belfast, Northern Ireland, UK</td><td>M&amp;E across UK and Ireland; offices Belfast, Portadown, Derry/Londonderry.</td><td class="num">£55m+, projecting £70m · 280+ staff <span class="tag t-ok">Verified</span><br><span class="mono">infrastructure-now.co.uk profile</span></td><td>Above your band and growing toward £100m, but the growth plan plus 50 apprentices says the pre-construction load is climbing fast. Worth a call despite the size.</td></tr>
+
+      <tr><td class="rank">20</td><td class="firm">CMB Engineering<a href="https://www.cmbengineering.co.uk/">cmbengineering.co.uk</a></td><td>Cardiff, Wales, UK</td><td>Mechanical + electrical install, cleanrooms, semiconductors. Commercial, industrial, advanced manufacturing.</td><td class="num">"circa £100m" claimed · 51–200 staff <span class="tag t-warn">Broker claim</span><br><span class="mono">ccemagazine.com interview</span></td><td>Posted an electrical estimator vacancy on its own site, which is the right signal — but the revenue claim puts it above your band. Verify before pursuing.</td></tr>
+
+      <tr><td class="rank">21</td><td class="firm">Wheatley M&amp;E Building Services<a href="https://www.wheatleys.net/">wheatleys.net</a></td><td>Leeds, UK</td><td>Mechanical + electrical design and install. Industrial, commercial, retail, public.</td><td class="num">~24 staff <span class="tag t-ok">Verified</span> · revenue <span class="tag t-none">not verified</span><br><span class="mono">Construction Wave, Jun 2026</span></td><td>Went employee-owned in June 2026 with the founder staying as MD; an EOT board has a real reason to raise bid win-rate. Well below your headcount floor.</td></tr>
+
+      <tr><td class="rank">22</td><td class="firm">LMB Group<a href="https://www.lmb-group.co.uk/">lmb-group.co.uk</a></td><td>Cleckheaton, West Yorkshire, UK</td><td>Mechanical, plumbing, electrical, HVAC. National delivery.</td><td class="num">Revenue <span class="tag t-none">not verified</span> · headcount <span class="tag t-none">not verified</span></td><td>Named as a leading Yorkshire building services specialist, but I found no financials, no leadership and no vacancy — pure qualify-first name.</td></tr>
+
+      <tr><td class="rank">23</td><td class="firm">Livingston Building Services<a href="https://www.livingstonme.co.uk/">livingstonme.co.uk</a></td><td>UK <span class="tag t-none">city</span></td><td>Full M&amp;E: surveys, design, install, commissioning. Commercial office, healthcare, industrial, financial.</td><td class="num">Revenue <span class="tag t-none">not verified</span> · headcount <span class="tag t-none">not verified</span><br><span class="mono">Pagabo supplier announcement</span></td><td>Named on Pagabo's £545m M&amp;E framework — a genuine framework-win signal, and framework places create tender volume without creating estimators.</td></tr>
+
+      <tr><td class="rank">24</td><td class="firm">Hollander Techniek<a href="https://www.hollandertechniek.nl/">hollandertechniek.nl</a></td><td>Apeldoorn, Netherlands</td><td>Electrical, industrial automation, IT, mechanical, security, retail tech. Retail, industry, utility.</td><td class="num">~600 staff <span class="tag t-ok">Verified</span> · revenue <span class="tag t-none">not verified</span><br><span class="mono">hollandertechniek.nl</span></td><td>Well above your headcount ceiling, but it is a second-generation family firm advertising calculator roles — keep as a stretch account, not a core target.</td></tr>
+
+      <tr><td class="rank">25</td><td class="firm">Uggerly Installation A/S<a href="https://uggerly.dk/">uggerly.dk</a></td><td>Aalborg, Denmark</td><td>El, VVS, ventilation, entreprise, svagstrøm. Seven Danish branches.</td><td class="num">DKK 568m (~€76m), up from DKK 459m · 475 staff <span class="tag t-ok">Verified</span><br><span class="mono">sn.dk / installator.dk, FY2025</span></td><td>The only Danish independent I could verify at all. Family-led and growing 24% year on year, but clearly above your band — include as market entry, not as a fit.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Contacts, vacancies and signal evidence</h2>
+  <p>One row per firm where I found something specific. Firms absent from this table (LMB Group, Livingston, DL M&amp;E, Compco, Meel, Klomp, Linthorst) yielded no named decision-maker in search results.</p>
+  <div class="scroller">
+  <table>
+    <caption>Table 2 — Named decision-makers, estimating vacancies, and demand-surplus evidence</caption>
+    <thead><tr>
+      <th>Firm</th><th>Decision-maker</th><th>LinkedIn</th><th>Estimating / QS vacancy seen</th><th>Demand-surplus evidence (source)</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="firm">Kimpton</td><td>Tim Davis, managing director (post-MBO; previously general manager)</td><td><span class="tag t-none">Not found</span></td><td>No open advert found — but it <em>hired</em> John Glynn as lead mechanical estimator plus four others from HE Simm, Oct 2025</td><td>MBO Nov 2024 and a five-person team lift including the estimating lead — <a href="https://www.constructionenquirer.com/2024/11/18/management-buyout-at-me-specialist/">Construction Enquirer</a>, <a href="https://constructionwave.co.uk/2025/10/20/fit-out-specialist-kimpton-scoops-up-five-former-he-simm-employees/">Construction Wave</a></td></tr>
+
+      <tr><td class="firm">Arc-Tech (Scotland)</td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td>£35m → "exceeding £40m" in FY26, 120 staff, six new apprentices taking the cohort to 19 — <a href="https://projectscot.com/2026/08/building-services-contractor-adds-to-apprentice-headcount/">Project Scotland, Aug 2026</a></td></tr>
+
+      <tr><td class="firm">Evans Group</td><td><span class="tag t-none">Not found</span> (family-run, per source)</td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td>Turnover £10.4m → £21.6m, PBT £0.44m → £2m, "substantial forward order book extending into 2027 and beyond" — <a href="https://www.insidermedia.com/news/south-west/profits-and-turnover-surge-at-long-established-120-strong-engineering-group">Insider Media</a></td></tr>
+
+      <tr><td class="firm">Rockwell Engineering</td><td>Garret Murphy, managing director (succeeded Martin Conheady)</td><td><span class="tag t-none">Not found</span></td><td>Careers page advertises roles "from senior management to trainee operatives"; no estimator ad confirmed</td><td>€40m today, stated target of €80m then €100m by 2030 with headcount doubling to 400 — <a href="https://constructionnews.ie/garret-murphy-managing-director-rockwell-engineering/">Irish Construction News</a></td></tr>
+
+      <tr><td class="firm">BSN Group</td><td>Darren Perry, founder; Nick Gibb, joint MD; Jennifer Reynolds, group commercial director</td><td><span class="tag t-none">Not found</span></td><td>M&amp;E manager/co-ordinator advert seen; no estimator ad confirmed</td><td>Record £45m turnover, up from £25m, on 80+ staff; NHS and local-authority work — <a href="https://www.placemidlands.co.uk/bsn-group-eyes-further-growth-after-posting-record-turnover/">Place Midlands</a></td></tr>
+
+      <tr><td class="firm">Armstrong Priestley</td><td>Anne Marie Cable and Steve Brailey, joint MDs; Peter Armstrong, founder/retiring MD</td><td><span class="tag t-none">Not found</span></td><td>Two open jobs listed on Indeed employer page; roles not identified <span class="tag t-warn">date unknown</span></td><td>Director changes signalling succession — <a href="https://www.insidermedia.com/news/yorkshire/director-changes-at-armstrong-priestley">Insider Media</a>; £12m turnover, 70 direct staff — <a href="https://armstrongpriestley.co.uk/">armstrongpriestley.co.uk</a></td></tr>
+
+      <tr><td class="firm">Triangle Fire Systems</td><td>Colin Chantler, CEO; co-founded with Nigel and Steve Chantler</td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td>£9m BGF investment to expand a 100-strong team and add service lines — <a href="https://www.clearwatercf.com/experience/transactions/clearwater-advises-triangle-fire-systems-on-its-9m-investment-from-bgf/">Clearwater Corporate Finance</a></td></tr>
+
+      <tr><td class="firm">A. de Jong Groep</td><td><span class="tag t-none">Not found</span> — note an open <em>Algemeen Directeur Installatietechniek</em> search</td><td><span class="tag t-none">Not found</span></td><td><strong>Calculator Werktuigbouwkunde</strong> and <strong>Calculator Elektrotechniek</strong>, both on the company careers site <span class="tag t-warn">dates unknown</span></td><td>"Forse groei bij installatiebedrijven A. de Jong Groep" and a director search citing growth already in the business — <a href="https://dejong.nl/forse-groei-bij-installatiebedrijven-a-de-jong-groep/">dejong.nl</a>, <a href="https://www.lintberg.nl/vacatures/management/algemeen-directeur-installatietechniek-15208.html">Lintberg</a></td></tr>
+
+      <tr><td class="firm">Woodward Group</td><td>Aden Woodward, managing director (2nd generation, took over 2015)</td><td><a href="https://www.linkedin.com/in/adenwoodwardwoodwardelectrical/">linkedin.com/in/adenwoodwardwoodwardelectrical</a></td><td><span class="tag t-none">Not found</span></td><td>HQ move called "a major step forward" for 2026 plus ten spring hires — <a href="https://www.insidermedia.com/news/midlands/longstanding-mechanical-and-electrical-contractor-takes-major-step-forward-with-hq-move">Insider Media</a>, <a href="https://www.eastmidlandsbusinesslink.co.uk/mag/appointments/woodward-group-bolsters-team-with-ten-spring-hires/">East Midlands Business Link</a></td></tr>
+
+      <tr><td class="firm">ISTL Engineering</td><td>Chris Norman, founder/director (est. 1995)</td><td><span class="tag t-none">Not found</span></td><td>Ten new jobs announced, roles unspecified</td><td>Six-figure loan from the Investment Fund for Wales to service new Cardiff Bay contracts, Feb 2026 — <a href="https://fwcapital.co.uk/news-and-events/istl-engineering-secures-loan-investment-fund-wales">FW Capital</a>, <a href="https://developmentbank.wales/case-studies/istl-engineering">Development Bank of Wales</a></td></tr>
+
+      <tr><td class="firm">Elm Building Services</td><td>John Newton and Ian Walker, MBO team; Neil Munday, founder</td><td><span class="tag t-none">Not found</span></td><td>Team described as including in-house estimators; no advert found</td><td>£1m Finance Yorkshire-backed MBO, projecting £15–17m within 3–5 years from £8–10m — <a href="https://www.finance-yorkshire.com/news-and-events/mbo-completed-at-building-engineers-with-finance-yorkshire-investment">Finance Yorkshire</a></td></tr>
+
+      <tr><td class="firm">CMB Engineering</td><td>Steve Borley, founder; John Green, operations director</td><td><span class="tag t-none">Not found</span></td><td><strong>Electrical Estimator</strong> posted on the company's own site <span class="tag t-warn">date unknown</span> — <a href="https://www.cmbengineering.co.uk/post/job-vacancy-electrical-estimator-1">advert</a></td><td>Growth from ~£100k to "around £100m" turnover claimed in interview — <a href="https://ccemagazine.com/news/learn-about-cmb-engineerings-impactful-no-grief-approach-to-contracting/">CCE Magazine</a></td></tr>
+
+      <tr><td class="firm">Davies Building Engineering Services</td><td>Jon Davies, managing director</td><td><a href="https://www.linkedin.com/in/jon-davies-b24037324/">linkedin.com/in/jon-davies-b24037324</a></td><td><span class="tag t-none">Not found</span></td><td>None beyond company growth claims — <span class="tag t-none">no signal verified</span></td></tr>
+
+      <tr><td class="firm">Wheatley M&amp;E</td><td>Nigel Wheatley, managing director (staying on post-EOT)</td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td>Transition to an Employee Ownership Trust, June 2026 — <a href="https://constructionwave.co.uk/2026/06/03/wheatley-becomes-employee-ownership-trust-after-30-years/">Construction Wave</a></td></tr>
+
+      <tr><td class="firm">Irwin M&amp;E</td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td>£55m turnover heading to a projected £70m, 280 staff, plan to exceed £100m, ~50 apprentices — <a href="https://www.infrastructure-now.co.uk/article/347767/how-irwin-me-has-grown-from-local-contractor-to-leading-me-solutions-provider-in-the-uk-and-ireland">Infrastructure Now</a></td></tr>
+
+      <tr><td class="firm">Uggerly Installation</td><td>Henrik Uggerly, adm. direktør; Jens Uggerly, teknisk direktør</td><td><span class="tag t-none">Not found</span></td><td><span class="tag t-none">Not found</span></td><td>Revenue DKK 459m → 568m, 475 employees of whom 90 are apprentices — <a href="https://www.sn.dk/art6533348/glostrup-kommune/kultur/ny-milepael-uggerly-installation-passerer-en-halv-milliard/">sn.dk</a>, <a href="https://www.installator.dk/uggerly-nar-rekordomsaetning-men-bundlinjen-folger-ikke-med">installator.dk</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Top tier, and why</h2>
+  <div class="grid2">
+    <div class="card"><h3>Kimpton — Liverpool</h3><p class="why">The only firm here that demonstrably pays market rates to buy estimating capacity: it lifted a lead mechanical estimator and four colleagues out of a competitor in one move. A business that solves the problem that way has already priced the problem, which makes your discount to a salaried hire an easy comparison. £25m and 55 people means one decision-maker, and the 2024 MBO team owns the P&amp;L outright.</p></div>
+    <div class="card"><h3>Evans Group — South Wales</h3><p class="why">Turnover doubled in a single year on a fixed 120-person base, with an order book stretching into 2027. That is the exact arithmetic of a firm declining tenders: the work is already sold, so every incremental invitation competes with delivery for the same pre-construction hours.</p></div>
+    <div class="card"><h3>Arc-Tech (Scotland) — Glasgow</h3><p class="why">Ten years from founding to £40m. Firms compounding at this rate hire estimators last, because founders keep pricing personally for far longer than they should. Public-sector framework work in Scotland also means high tender volume at moderate ticket size — the profile where AI-assisted pricing pays back fastest.</p></div>
+    <div class="card"><h3>Rockwell Engineering — Co. Cork</h3><p class="why">A published plan to go from €40m to €100m by 2030 under a brand-new MD. New MDs buy tools their predecessors would not, and a 2.5× revenue target cannot be met at current bid throughput. Best Irish entry point on this list.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Where these firms come from — work these directly</h2>
+  <div class="grid2">
+    <div class="card"><h3>Highest yield: regional accounts coverage</h3><p class="why">Insider Media (regional editions), Construction Wave, Construction Enquirer, Construction News, Place Midlands, Project Scotland, East Midlands Business Link, Express &amp; Star, Yorkshire Times, Wales 247, Business News Wales. These publish filed-accounts stories naming turnover, headcount, order book and directors in one paragraph — the single best source for this profile.</p></div>
+    <div class="card"><h3>Framework portals (recent-win signal)</h3><p class="why">Pagabo (£545m M&amp;E Solutions framework, 47 suppliers, 74% SMEs), Fusion21 (£820m Heating, Renewables &amp; Electrical, 80 firms, 84% SMEs; £800m Building Safety &amp; Compliance), LHC Procurement Group (regional lots, SME-friendly), NHS SBS PS-Works, Procure Partnerships, Find a Tender, Contracts Finder, Stotles, BidStats.</p></div>
+    <div class="card"><h3>Trade bodies and directories</h3><p class="why">BESA and its awards (turnover-banded categories), ECA — whose award classes literally segment members at £5.1–15m, £15.1–45m and £45m+, which maps onto your band better than any database — FIA, BAFSA, Construction Specialists directory, The Construction Index. In NL: Techniek Nederland members and bouwberichten.nl. In DK: TEKNIQ Arbejdsgiverne and installator.dk. In SE: Installatörsföretagen's "hitta installatör", plus VVS-Forum and Elinstallatören's annual turnover rankings.</p></div>
+    <div class="card"><h3>Company data (verify size here)</h3><p class="why">Companies House, Endole, Northdata, Pomanda (UK/IE); KVK and companyinfo.nl (NL); CVR and proff.dk (DK); allabolag.se (SE). Treat RocketReach, ZoomInfo and Crunchbase figures as leads only — several contradicted the trade press in this research.</p></div>
+    <div class="card"><h3>Job boards where employers post direct</h3><p class="why">Company careers pages first (CMB, A. de Jong, Klomp, van den Buijs and Hollander all advertise estimating roles themselves). Then Find a Job (DWP), Indeed, Totaljobs, Jobsite, CV-Library, CIBSE Journal Jobs; Irish Jobs and Breagh Recruitment in Ireland; Indeed.nl and Glassdoor.nl; Indeed.dk and Jooble.dk; Indeed.se and Jooble.se.</p></div>
+    <div class="card"><h3>Specialist recruiters as a proxy signal</h3><p class="why">When a firm has retained Contract Scotland, Moston, Building Careers UK, Ernest Gordon, Strong Recruitment or Breagh for an estimator, it has already accepted a five-figure fee to solve this. Recruiter adverts hide the client name, but the region-plus-project-size description usually identifies the firm within two or three candidates.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Alert phrasings</h2>
+  <p>Observed in live adverts during this research. Set alerts on the exact strings, not on "estimator" alone — the mechanical and electrical variants are usually posted as separate roles by the same firm, which is itself a sign of a stretched desk.</p>
+  <div class="scroller">
+  <table>
+    <caption>Table 3 — How these firms name the role, by market</caption>
+    <thead><tr><th>Market</th><th>Most common phrasings</th><th>Adjacent titles worth catching</th></tr></thead>
+    <tbody>
+      <tr><td><strong>UK &amp; Ireland</strong></td><td>"Mechanical Estimator" · "Electrical Estimator" · "M&amp;E Estimator" · "Senior Mechanical Estimator"</td><td>"Estimator / Quantity Surveyor", "Trainee Estimator", "Estimating Manager", "Pre-Construction Manager", "Bid Manager"</td></tr>
+      <tr><td><strong>Netherlands</strong></td><td>"Calculator Installatietechniek" · "Calculator Werktuigbouwkunde" · "Calculator Elektrotechniek" · "Calculator / Werkvoorbereider"</td><td>"Calculator Utiliteit", "Aankomend Calculator", "Werkvoorbereider W/E"</td></tr>
+      <tr><td><strong>Denmark</strong></td><td>"Kalkulator" · "Tilbudsberegner"<span class="tag t-warn">low sample</span></td><td>"Projektleder VVS/el" adverts often carry tender-pricing duties</td></tr>
+      <tr><td><strong>Sweden</strong></td><td>"Kalkylator" · "VVS-kalkylator" · "Kalkylator El" · "Kalkylingenjör"</td><td>"Anbudsingenjör", "Kalkyl- och anbudsansvarig"</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>One phrasing pattern is worth a saved search on its own: adverts that open "due to continued growth" or "to strengthen our pre-construction team". In this research those phrases appeared almost exclusively on adverts from firms in your size band.</p>
+</section>
+
+<section>
+  <h2>Ruled out, and why</h2>
+  <p>Checking these saved time — two would have been embarrassing calls.</p>
+  <ul>
+    <li><strong>NWP Electrical &amp; Mechanical</strong> (St Asaph) — ceased trading; administrators appointed, 59 staff made redundant. Still ranks in search results and on data-broker profiles showing "$23.4m revenue in 2026".</li>
+    <li><strong>Coops EMBS</strong> (Sheffield) — entered administration June 2026.</li>
+    <li><strong>KNG Building Services</strong> (Leeds, £10m MEP) — acquired in 2026 by TrueNorth Capital Group, which is assembling an MEP roll-up ahead of a 2027 listing. Fails your independence test now.</li>
+    <li><strong>Too large for the band:</strong> Dodd Group (£254.9m), Briggs &amp; Forrester (£240m), Derry Building Services (£80.1m), Phoenix ME (~£400m), Jaguar (£102.3m). In Ireland effectively the whole published Top 20 — Jones Engineering (€1.6bn), Dornan (€1.2bn), Kirby (€933m), Suir (€421m), STS (€358m), Designer Group (€275m), King &amp; Moffat (€194m), Leo Lynch (€110.3m), CJK (€97.6m), Radley (€94.4m), MSL (€93m), Tritech (€71.5m), Lynskey (€70.1m). In NL Hoppenbrouwers (€351m) and Kuijpers (€302m); in Sweden Sandbäckens (~SEK 1.45bn).</li>
+    <li><strong>Excluded by your group rule:</strong> anything inside Vinci, Bouygues, EMCOR, NG Bailey, Imtech, TBI (Croonwolter&amp;dros, Wolter &amp; Dros, HOMIJ), Bravida, Assemblin, Instalco, Caverion.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What I could not do, and what it would take</h2>
+  <ul>
+    <li><strong>Denmark and Sweden.</strong> No in-band independent verified. Danish and Swedish company-level coverage sits behind Proff, CVR, allabolag and the trade weeklies, none of which I could open. A single afternoon with allabolag.se filtered on SNI 43.21/43.22 at SEK 50–500m, and CVR filtered on branchekode 432100/432200 at 30–250 employees, would produce the equivalent list for both markets.</li>
+    <li><strong>Ireland below €50m.</strong> Irish trade press covers the data-centre giants; the €5–50m tier is largely invisible to search. The CIF membership directory and Breagh Recruitment's live estimator briefs are the way in.</li>
+    <li><strong>Vacancy dates.</strong> Confirming "posted in the last 6 months" needs the job pages themselves. Each firm in Table 2 can be settled in one page-load.</li>
+    <li><strong>Named commercial directors.</strong> Fourteen of the twenty-five have no named contact here. LinkedIn Sales Navigator filtered to the company plus "estimating"/"commercial"/"pre-construction" closes that gap far faster than public search does.</li>
+  </ul>
+</section>
+
+<footer>Compiled 20 August 2026 from public web search results only. Financial figures are as reported by the cited source on the date shown, not as filed today. Nothing here is estimated: where a figure was unavailable, the row says so.</footer>
+</div>
